@@ -6,6 +6,10 @@ _ = Logger()
 
 CONTRACT_WORKSPACE = sys.path[0] + "/../"
 
+INITIAL_RAM_KBYTES = 120
+INITIAL_STAKE_NET = 100
+INITIAL_STAKE_CPU = 100
+
 class Test(unittest.TestCase):
 
     def run(self, result=None):
@@ -23,7 +27,7 @@ class Test(unittest.TestCase):
         contract.build(force=False)
         contract.deploy()
 
-        create_account("account_alice", account_master)
+        create_account("account_alice", account_master, buy_ram_kbytes=INITIAL_RAM_KBYTES, stake_net=INITIAL_STAKE_NET, stake_cpu=INITIAL_STAKE_CPU)
         create_account("account_carol", account_master)
 
 
