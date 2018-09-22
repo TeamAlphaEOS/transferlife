@@ -36,7 +36,8 @@ class Test(unittest.TestCase):
         Test an action for Alice, including the debug buffer:
         ''')
         account_host.push_action("storepers", {"id": 1, "user": account_alice, "data": "mysecret", "currentkey": "akey"}, account_alice)
-        account_host.push_action("authorize", {"id": 1, "owner": account_host, "requester": account_alice, "requesteddata": "personal"}, account_host)
+        account_host.push_action("reqauth", {"id": 1, "requester": account_alice, "datatype": "personal", "seconds": 120, "key" : "encKey"}, account_alice)
+        account_host.push_action("authorize", {"id": 1, "owner": account_host, "requester": account_alice, "requesteddata": "encrypted"}, account_host)
 
 
     def tearDown(self):
