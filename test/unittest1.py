@@ -42,7 +42,7 @@ class Test(unittest.TestCase):
         account_host.push_action("storepers", {"id": 1, "user": account_alice, "data": "mysecret", "currentkey": "akey"}, account_alice)
         account_host.push_action("storepers", {"id": 1, "user": account_alice, "data": "mysecret2", "currentkey": "akey"}, account_alice)
         account_host.push_action("reqauth", {"id": 1, "requester": account_alice, "datatype": "personal", "seconds": 120, "key" : "encKey"}, account_alice)
-        account_host.push_action("authorize", {"id": 1, "owner": account_host, "requester": account_alice, "requesteddata": "encrypted"}, account_host)
+        account_host.push_action("authorize", {"id": 1, "owner": account_host, "requester": account_alice, "requesteddata": "encrypted", "duration": 10}, account_host)
 
 
     def tearDown(self):

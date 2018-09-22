@@ -34,7 +34,7 @@ cleos get table eosio eosio datastore
 }
 
 
-cleos push action eosio authorize '{"id": 1, "owner": "eosio", "requester": "eosio", "requesteddata": "personal"}' -p eosio@active
-
-cleos push action eosio deferwipe '{"id": 1, "owner": "eosio", "duration": 5}' -p eosio@active
-(after 5 seconds the authorization flag will be reset to false)
+cleos push action eosio authorize '{"id": 1, "owner": "eosio", "requester": "eosio", "requesteddata": "personal", "duration": 10}' -p eosio@active
+cleos get table eosio eosio datastore
+(after 10 seconds the authorization flag will be reset to false)
+cleos get table eosio eosio datastore
