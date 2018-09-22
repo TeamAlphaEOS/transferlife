@@ -76,7 +76,7 @@ class mediceos : public eosio::contract {
      * (public) key is provided by requester for the owner to encrypt the data
     */
     /// @abi action
-    void reqauth(uint64_t id, account_name requester, string datatype, uint16_t seconds, string key){
+    void reqauth(uint64_t id, account_name requester, string datatype, string key){
       print( "Request authorization" );
       stores stored(_self, _self);
       require_auth( requester );
