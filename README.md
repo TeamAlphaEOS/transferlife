@@ -11,7 +11,8 @@ cleos get table eosio eosio datastore
   "rows": [],
   "more": false
 }
-docent:firstone docent$ cleos push action eosio storepers '{"id": 1, "user": "eosio", "data": "mysecret", "currentkey": "akey"}' -p eosio@active
+
+cleos push action eosio storepers '{"id": 1, "user": "eosio", "data": "mysecret", "currentkey": "akey"}' -p eosio@active
 executed transaction: 1b6eb5082112b3aa374d4f04100f70a4f69aa5ebac3be3f81dd5e9c8abccfa3c  128 bytes  602 us
 #         eosio <= eosio::storepers             {"id":1,"user":"eosio","data":"mysecret","currentkey":"akey"}
 warning: transaction executed locally, but may not be confirmed by the network yet    ]
