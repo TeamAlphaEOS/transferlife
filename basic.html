@@ -31,7 +31,9 @@ sha512-gK4w1toMYX+VDt+DcHu9voY1CVF/lEV6lMakFvUHAi3ue9SgWmoAzx/Ngklaway5DPPJpWwfT
   eos.getAccount('eosio', (error, result) => console.log(error, result));
 
   // const fs = require("fs");
-  eos.getAbi('eosio', (error, result) => console.log(error, result));
+  eos.getAbi('eosio', (error, result) =>
+      document.getElementById('textid').value = JSON.stringify(result.abi.actions)
+  );
 
   // wasm = fs.readFileSync('/home/docent/dev/eoshack/transferlife/contracts/mediceos.wasm');
   // abi = fs.readFileSync('/home/docent/dev/eoshack/transferlife/contracts/mediceos.abi');
@@ -65,9 +67,17 @@ sha512-gK4w1toMYX+VDt+DcHu9voY1CVF/lEV6lMakFvUHAi3ue9SgWmoAzx/Ngklaway5DPPJpWwfT
   eos.contract('eosio').then(eosio => eosio.storepers(1, "eosio", "wooho", "akey", {'authorization': "eosio@active"}));
 
   eos.getTableRows(true,'eosio','eosio','datastore',0,0,1000,1000).then(function (res) {
-      console.log(res.rows[0].encryptedpersonal);
+      document.getElementById('labelid').innerHTML = res.rows[0].encryptedpersonal;
   })
 
   </script>
 </head>
+<body>
+contact abi actions:
+<textarea id="textid" rows="10" cols="80"></textarea>
+<br/>
+
+data from contract table:
+<label id="labelid"></label>
+</body>
 </html>
