@@ -23,7 +23,7 @@ sha512-gK4w1toMYX+VDt+DcHu9voY1CVF/lEV6lMakFvUHAi3ue9SgWmoAzx/Ngklaway5DPPJpWwfT
   */
   eos = Eos({
     keyProvider: '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',// private key
-    httpEndpoint: 'http://127.0.0.1:8999',
+    httpEndpoint: 'http://10.20.10.92:8999',
     chainId: chain.sys,
   });
 
@@ -67,11 +67,12 @@ sha512-gK4w1toMYX+VDt+DcHu9voY1CVF/lEV6lMakFvUHAi3ue9SgWmoAzx/Ngklaway5DPPJpWwfT
   eos.contract('eosio').then(eosio => eosio.storepers(1, "eosio", "wooho", "akey", {'authorization': "eosio@active"}));
 
   // do the below as one off, or just invoke from cleos:
-  //cleos -u http://127.0.0.1:8999 push action eosio authorize '{"id": 1, "owner": "eosio", "requester": "eosio", "requesteddata": "personal", "duration" : 10 }' -p eosio@active
+  //cleos -u http://10.20.10.92:8999 push action eosio authorize '{"id": 1, "owner": "eosio", "requester": "eosio", "requesteddata": "personal", "duration" : 10 }' -p eosio@active
   //
   // eos.contract('eosio').then(eosio => eosio.authorize(1, "eosio", "eosio", "encrypted", 10, {'authorization': "eosio@active"}));
   //
   eos.getTableRows(true,'eosio','eosio','datastore',0,0,1000,1000).then(function (res) {
+      console.log(res)
       document.getElementById('labeliddata').innerHTML = res.rows[0].encryptedpersonal;
       document.getElementById('labelidauth').innerHTML = res.rows[0].authorized;
   })
