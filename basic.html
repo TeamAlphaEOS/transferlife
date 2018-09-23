@@ -29,9 +29,40 @@ sha512-gK4w1toMYX+VDt+DcHu9voY1CVF/lEV6lMakFvUHAi3ue9SgWmoAzx/Ngklaway5DPPJpWwfT
 
   eos.getInfo((error, result) => { console.log(error, result) });
   eos.getAccount('eosio', (error, result) => console.log(error, result));
-  /** below does not work for some reason, even though I can interract with contract via cleos
-  */
-  eos.contract('eosio').then(eosio => eosio.storepers(1, "eosio", "mysecret", "akey"))
+
+  // const fs = require("fs");
+  eos.getAbi('eosio', (error, result) => console.log(error, result));
+
+  // wasm = fs.readFileSync('/home/docent/dev/eoshack/transferlife/contracts/mediceos.wasm');
+  // abi = fs.readFileSync('/home/docent/dev/eoshack/transferlife/contracts/mediceos.abi');
+
+  // eos.setcode('eosio', 0, 0, wasm) // @returns {Promise}
+  // eos.setabi('eosio', JSON.parse(abi)) // @returns {Promise}
+  //
+  // eos.transaction({
+  //         actions: [
+  //             {
+  //                 account: "eosio",
+  //                 name: "storepers",
+  //                 authorization: [
+  //                     {
+  //                         actor: "eosio",
+  //                         permission: "active"
+  //                     }
+  //                 ],
+  //                 data: {"id": 1,
+  //                     "user": "eosio",
+  //                     "data": "mysecret2",
+  //                     "currentkey": "akey"}
+  //             }
+  //         ]
+  //     })
+  //     .then(result => {
+  //         console.log(result);
+  //     });
+
+//below works, can be verified by e.g. cleos get table
+  eos.contract('eosio').then(eosio => eosio.storepers(1, "eosio", "wooho", "akey", {'authorization': "eosio@active"}))
 
 
   </script>
