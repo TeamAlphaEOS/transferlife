@@ -22,13 +22,13 @@ const eos = Eos({
 class OtherHospital extends Component {
     click = () => {
         toast.info("Patient sent successfully");
-        console.log("test");
+        console.log("sending data");
         this.handleFormEvent();
     }
   // generic function to handle form events (e.g. "submit" / "reset")
   // push transactions to the blockchain by using eosjs
   async handleFormEvent(event) {
-    eos.contract('eosio').then(eosio => eosio.storepers(1, "eosio", "asdfs", "akey", {'authorization': "eosio@active"}));
+    eos.contract('eosio').then(eosio => eosio.storepers(1, "eosio", "ENCRYPTED_DATA_83728dfskk33", "akey", {'authorization': "eosio@active"}));
     this.getTable();
   }
 
@@ -40,7 +40,7 @@ class OtherHospital extends Component {
     })
   }
 
-  button = () => <Button onClick={this.click} basic>send patients</Button>;
+  button = () => <Button onClick={this.click} basic>send patient(s)</Button>;
     render() {
         return (
             <div>
@@ -98,19 +98,6 @@ class OtherHospital extends Component {
              </div>
              <Divider section />
 
-          <h3>Hackney</h3>
-          <Progress percent={5} indicating progress>
-            staff patient capacity
-          </Progress>
-          <Progress percent={95} indicating progress>
-            available beds
-          </Progress>
-          <div style={styles.container}>
-            <Button onClick={notify} basic>
-              send patients
-            </Button>
-          </div>
-          <Divider section />
         </Segment>
       </div>
     );
