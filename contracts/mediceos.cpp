@@ -2,10 +2,6 @@
 #include <eosiolib/print.hpp>
 #include <eosiolib/transaction.hpp>
 
-#define DEBUG
-
-#include "logger.hpp"
-
 using namespace eosio;
 using std::string;
 
