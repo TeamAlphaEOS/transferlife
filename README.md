@@ -1,3 +1,7 @@
+nodeos -e -p eosio --plugin eosio::chain_api_plugin --plugin eosio::history_api_plugin --delete-all-blocks --http-server-address=0.0.0.0:8999
+(also add the following to config.ini - access-control-allow-origin = *)
+
+
 cleos set contract eosio build mediceos.wasm mediceos.abi -p eosio@active
 Reading WASM from build/mediceos.wasm...
 Publishing contract...
