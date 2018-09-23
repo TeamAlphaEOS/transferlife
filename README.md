@@ -2,7 +2,7 @@ nodeos -e -p eosio --plugin eosio::chain_api_plugin --plugin eosio::history_api_
 (also add the following to config.ini - access-control-allow-origin = *)
 
 
-cleos -u http://127.0.0.1:8999 set contract eosio build mediceos.wasm mediceos.abi -p eosio@active
+cleos -u http://127.0.0.1:8999 set contract eosio contracts mediceos.wasm mediceos.abi -p eosio@active
 Reading WASM from build/mediceos.wasm...
 Publishing contract...
 executed transaction: f77d850835692f8e05dd5813b7949fd605154e03cc1e84c41ecaca8f2d477246  6104 bytes  1323 us
