@@ -2,7 +2,7 @@ import React from "react";
 import { Segment, Grid, Header, Image, List, Button, Divider, Container } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Main from '../main.png'
-import Vitalik from '../'
+import Vit from '../vit.jpg'
 
 export default () => (
   <div style={{ marginTop: 50 }}>
@@ -54,11 +54,11 @@ export default () => (
           </Grid.Column>
           <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
             <Header as="h3" style={{ fontSize: "2em" }}>
-              Why not on Ethereum :(
+              Why not on Ethereum :( <br />
+                <small>(It's not possible Vitalik)</small>
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              <Image avatar src="/images/avatar/large/nan.jpg" />
-              <b>Nan</b> Chief Fun Officer Acme Toys
+              <Image avatar size="small" src={Vit} />
             </p>
           </Grid.Column>
         </Grid.Row>

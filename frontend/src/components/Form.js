@@ -166,35 +166,29 @@ let ContactForm = props => {
         </Form.Group>
       ))}
       <Form.Field>
-        <Label color="teal" ribbon>
-          Predicted user medical status
-        </Label>
-        <Rating size="huge" icon="heart" defaultRating={1} maxRating={5} />
+        <Label ribbon>Predicted user health status:</Label>
+        <Rating size="massive" icon="heart" defaultRating={1} maxRating={5} />
       </Form.Field>
       <Modal
-        closeIcon
         size="mini"
-        trigger={
-          <Button
-            style={{ marginTop: 30 }}
-            onClick={handleSubmit}
-            type="submit"
-          >
-            Submit
-          </Button>
-        }
+        trigger={<Button style={{ marginTop: 50 }}>Submit</Button>}
       >
         <Modal.Header>Status of Patient changed</Modal.Header>
-        <Modal.Description>
+        <Modal.Content>
           <Message negative>
-            <Message.Header>Status Critical</Message.Header>
-            <p>You should take actions</p>
+            <Message.Header>Status critical</Message.Header>
+            <p>You are adviced to take action!</p>
           </Message>
-        </Modal.Description>
+        </Modal.Content>
         <Modal.Actions>
-          <Button>Skip</Button>
+          <Button>No</Button>
           <Link to="/dashboard">
-            <Button positive icon="checkmark" content="Next Step" />
+            <Button
+              positive
+              icon="checkmark"
+              labelPosition="right"
+              content="Next step"
+            />
           </Link>
         </Modal.Actions>
       </Modal>
