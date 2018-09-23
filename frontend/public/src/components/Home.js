@@ -2,7 +2,6 @@ import React from "react";
 import { Segment, Grid, Header, Image, List, Button, Divider, Container } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Main from '../main.png'
-import Vitalik from '../'
 
 export default () => (
   <div style={{ marginTop: 50 }}>
