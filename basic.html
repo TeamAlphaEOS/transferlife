@@ -62,8 +62,11 @@ sha512-gK4w1toMYX+VDt+DcHu9voY1CVF/lEV6lMakFvUHAi3ue9SgWmoAzx/Ngklaway5DPPJpWwfT
   //     });
 
 //below works, can be verified by e.g. cleos get table
-  eos.contract('eosio').then(eosio => eosio.storepers(1, "eosio", "wooho", "akey", {'authorization': "eosio@active"}))
+  eos.contract('eosio').then(eosio => eosio.storepers(1, "eosio", "wooho", "akey", {'authorization': "eosio@active"}));
 
+  eos.getTableRows(true,'eosio','eosio','datastore',0,0,1000,1000).then(function (res) {
+      console.log(res.rows[0].encryptedpersonal);
+  })
 
   </script>
 </head>
